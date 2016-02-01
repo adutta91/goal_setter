@@ -20,13 +20,13 @@ feature "the signup process" do
     it "rejects too short of a password" do
       fill_in "Username", with: "some_guy"
       click_button "Sign Up"
-      expect(page).to have_content 'password too short'
+      expect(page).to have_content 'Password is too short'
     end
 
     it "rejects a blank username" do
       fill_in "Password", with: "password"
       click_button "Sign Up"
-      expect(page).to have_content "username can't be blank"
+      expect(page).to have_content "Username can't be blank"
     end
 
   end
