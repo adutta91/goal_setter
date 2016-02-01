@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def redirect_unless_logged_in
+    redirect_to new_session_url unless current_user
+  end
+
   def log_in(user)
     session[:session_token] = user.reset_session_token!
   end
