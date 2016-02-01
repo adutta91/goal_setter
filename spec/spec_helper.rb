@@ -60,3 +60,8 @@ def make_goal
   visit '/goals/new'
   fill_in "Description", with: "succeed"
 end
+
+def add_comment
+  fill_in "Body", with: "yeah right, loser"
+  click_button "Submit Comment"
+end

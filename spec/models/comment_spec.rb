@@ -14,5 +14,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validates that it has an owner" do
+    it "validates a user as it's subject" do
+      
+    end
+  end
 end

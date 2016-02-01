@@ -1,0 +1,14 @@
+<% if goal.completed %>
+  <%= "Completed" %>
+<% else %>
+
+  <form action="<%= goal_url(goal) %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <%= auth_token %>
+    <input type="hidden" name="goal[completed]" value="true">
+    <input type="submit" value="Done">
+  </form>
+
+  <%= button_to "Give Up", goal_url(goal), method: :delete %>
+
+<% end %>
