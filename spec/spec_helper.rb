@@ -55,3 +55,8 @@ def sign_in
   fill_in "Password", with: "password"
   click_button 'Sign In'
 end
+
+def make_goal
+  visit '/goals/new'
+  fill_in "Description", with: "succeed"
+end
