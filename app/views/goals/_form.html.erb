@@ -12,7 +12,7 @@
   <label for="description">Description: </label>
   <input type="text" name="goal[description]" id="description"
     value="<%= goal.description %>">
-
+  <br>
   <input type="radio" name="goal[pprivate]" value="false" id="Public" <%= "CHECKED".html_safe unless checked %> >Public<br>
   <input type="radio" name="goal[pprivate]" value="true" id="Private" <%= "CHECKED".html_safe if checked %>     >Private<br>
 

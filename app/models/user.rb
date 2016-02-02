@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :goals, dependent: :destroy
-  has_many :comments, class_name: "UserComment", dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   def password=(password)
     @password = password

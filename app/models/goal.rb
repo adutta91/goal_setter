@@ -15,7 +15,7 @@ class Goal < ActiveRecord::Base
   validates :description, :user_id, presence: true
   validates :pprivate, :completed, inclusion: {in: [true, false]}
 
-  has_many :comments, class_name: "GoalComment", dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
 
 

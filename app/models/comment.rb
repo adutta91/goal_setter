@@ -12,6 +12,10 @@
 #
 
 class Comment < ActiveRecord::Base
+
+  validates :commentable_id, :commentable_type, :user_id, :body, presence: true
+
   belongs_to :commentable, polymorphic: true
-  belongs_to :user
+  belongs_to :author, foreign_key: :user_id, class_name: "User"
+
 end
