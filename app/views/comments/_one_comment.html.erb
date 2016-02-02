@@ -1,0 +1,6 @@
+<% remove_url = comment.class == UserComment ? user_comment_url(comment) : goal_comment_url(comment) %>
+
+<%= comment.author.username %> <br>
+<%= comment.body %> <br>
+<%= button_to "Remove Comment", remove_url, method: :delete if current_user.id == comment.author_id %>
+<br><br>

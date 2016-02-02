@@ -1,6 +1,6 @@
 <% if goal.completed %>
   <%= "Completed" %>
-<% else %>
+<% elsif goal.user_id == current_user.id %>
 
   <form action="<%= goal_url(goal) %>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
@@ -10,5 +10,9 @@
   </form>
 
   <%= button_to "Give Up", goal_url(goal), method: :delete %>
+
+<% else %>
+
+  <%= "Goal in progress" %>
 
 <% end %>

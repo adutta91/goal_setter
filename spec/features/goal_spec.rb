@@ -67,3 +67,30 @@ feature "can manipulate goals" do
   end
 
 end
+
+feature "enforces privacy" do
+
+  before :each do
+    sign_up
+    make_goal
+    click_button 'Make Goal'
+    make_private_goal
+    click_button 'Sign Out'
+    sign_up_as_other_guy
+    visit user_url(User.find_by_username('some_guy'))
+  end
+
+  it "should not provide buttons for 'Give Up' nor 'Done'" do
+    expect(page).to_not have_button "Give Up"
+    expect(page).to_not have_button "Done"
+  end
+
+  it "should not show private goals" do
+    expect(page).to_not have_content "get laid"
+  end
+
+  it "should instead show simple 'in progress' notification" do
+    expect(page).to have_content "Goal in progress"
+  end
+
+end

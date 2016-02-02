@@ -52,6 +52,10 @@ class GoalsController < ApplicationController
     redirect_to user_url(current_user)
   end
 
+  def show
+    @goal = find_goal
+  end
+
   private
 
   def goal_params

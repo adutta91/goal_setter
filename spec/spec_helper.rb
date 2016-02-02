@@ -47,6 +47,13 @@ def sign_up
   click_button 'Sign Up'
 end
 
+def sign_up_as_other_guy
+  visit new_user_url
+  fill_in "Username", with: "other_guy"
+  fill_in "Password", with: "password"
+  click_button 'Sign Up'
+end
+
 def sign_in
   sign_up
   click_button 'Sign Out'
@@ -59,6 +66,13 @@ end
 def make_goal
   visit '/goals/new'
   fill_in "Description", with: "succeed"
+end
+
+def make_private_goal
+  visit '/goals/new'
+  fill_in "Description", with: "get laid"
+  choose 'Private'
+  click_button 'Make Goal'
 end
 
 def add_comment

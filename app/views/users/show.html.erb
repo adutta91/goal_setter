@@ -4,7 +4,14 @@
 
 <h4> Goals: </h4>
 <% @user.goals.each do |goal| %>
-  <%= goal.description %><br>
+  <% next if goal.pprivate && @user.id != current_user.id %>
+  <%= link_to goal.description, goal_url(goal) %><br>
   <%= "private" if goal.pprivate %><br>
   <%= render 'goals/done_button', goal: goal %><br>
 <% end %>
+
+<% @user.comments.each do |comment| %>
+  <%= render 'comments/one_comment', comment: comment %>
+<% end %>
+
+<%= render 'user_comments/form', user: @user %>

@@ -18,8 +18,6 @@ RSpec.describe Goal, type: :model do
   describe "validates paramaters" do
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:user_id) }
-    it { should validate_presence_of(:pprivate) }
-    it { should validate_presence_of(:completed) }
   end
 
   describe "associations" do
